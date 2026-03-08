@@ -12,7 +12,9 @@ tags:
   - LME Models
 ---
 
-This project examined how three-month-old infants form long-term voice memories through sleep-dependent consolidation. Combining EEG mismatch responses, sleep spindle analyses, and Riemannian manifold-based similarity analysis, we tracked memory formation for novel voices.
+![Riemannian Manifold Analysis](/images/riemannian-figure.png)
+
+We examined how three-month-old infants form long-term voice memories through sleep-dependent consolidation. Combining EEG mismatch responses, sleep spindle analyses, and Riemannian manifold-based similarity analysis, we tracked memory formation for novel voices.
 
 Laplacian Eigenmap projections of SPD covariance matrices revealed that after familiarization and sleep, the novel voice mismatch response converges with the mother's voice representation — indicating new long-term memory formation.
 

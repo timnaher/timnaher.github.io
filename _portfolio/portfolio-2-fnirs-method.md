@@ -12,6 +12,8 @@ tags:
   - Block Diag. Kernels
 ---
 
+![fNIRS Riemannian Classification](/images/fnirs-method-figure.png)
+
 This project introduces Riemannian geometry-based classification to functional near-infrared spectroscopy (fNIRS), treating multi-channel hemodynamic responses as symmetric positive definite covariance matrices on curved manifolds. Using block diagonal kernels that capture HBO and HBR co-activation patterns, the approach achieved 89% two-class accuracy and 70% eight-class accuracy, substantially exceeding traditional feature-extraction approaches.
 
 Published in *Neurophotonics* 12(4), 2025.

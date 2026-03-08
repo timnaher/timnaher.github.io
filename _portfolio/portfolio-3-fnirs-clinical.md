@@ -12,6 +12,8 @@ tags:
   - MNE
 ---
 
+![fNIRS Clinical Awareness Detection](/images/fnirs-clinical-figure.png)
+
 A clinical brain-computer interface using functional near-infrared spectroscopy to detect covert awareness in patients with disorders of consciousness. The system employs individualized Riemannian classification combined with permutation-based statistical analysis for bedside diagnostic assessment.
 
 The portable, ICU-deployable system achieves 100% sensitivity and 89% specificity for awareness detection using just 2-second encoding windows — from portable bedside cap acquisition through covariance feature construction and Riemannian classification to permutation-based awareness decisions.

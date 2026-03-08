@@ -12,6 +12,8 @@ tags:
   - Real-Time
 ---
 
+![SODEEP Architecture](/images/sodeep-architecture.png)
+
 A lightweight causal convolutional neural network for real-time detection of sleep slow oscillations in EEG signals. With only ~100k parameters, SODEEP achieves an F1 score of 0.967 at just 39 ms latency, making it suitable for closed-loop neurostimulation experiments targeting memory consolidation during sleep.
 
 The model uses a ResidualEncoder + LSTMDecoder architecture with Viterbi/CRF decoding, focal loss, and event-specific evaluation metrics. It replaces classical threshold-based methods with a learned, causal approach that generalizes across subjects.
