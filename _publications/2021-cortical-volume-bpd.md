@@ -2,6 +2,8 @@
 title: "Looking at the bigger picture: Cortical volume, thickness and surface area characteristics in borderline personality disorder with and without posttraumatic stress disorder"
 collection: publications
 category: manuscripts
+pub_tags:
+  - journal
 permalink: /publication/2021-cortical-volume-bpd
 date: 2021-05-01
 venue: 'Psychiatry Research: Neuroimaging'

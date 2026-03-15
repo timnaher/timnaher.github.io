@@ -2,6 +2,8 @@
 title: "The Causal Role of Frontal Eye Field in Saccade Rhythmicity"
 collection: publications
 category: conferences
+pub_tags:
+  - poster
 permalink: /publication/2025-fef-saccade-pug
 date: 2025-03-02
 venue: 'Psychologie und Gehirn (PUG)'

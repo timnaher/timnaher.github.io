@@ -2,6 +2,9 @@
 title: "Closed-loop transcutaneous vagus nerve stimulation of sleep slow oscillations"
 collection: publications
 category: manuscripts
+pub_tags:
+  - journal
+  - talk
 permalink: /publication/2025-closed-loop-tvns
 date: 2025-02-01
 venue: 'Brain Stimulation'

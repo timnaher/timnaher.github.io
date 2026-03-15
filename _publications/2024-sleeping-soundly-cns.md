@@ -2,6 +2,8 @@
 title: "Sleeping Soundly: Memory Formation for Voices in Three-Months-Old Infants"
 collection: publications
 category: conferences
+pub_tags:
+  - poster
 permalink: /publication/2024-sleeping-soundly-cns
 date: 2024-04-01
 venue: 'Cognitive Neuroscience Society (CNS)'

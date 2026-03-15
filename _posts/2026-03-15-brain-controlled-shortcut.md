@@ -1,7 +1,9 @@
 ---
-title: "I Built a Brain-Controlled Shortcut in an Afternoon"
+title: "Back to VS Code in a blink"
 date: 2026-03-15
 permalink: /posts/2026/03/brain-controlled-shortcut/
+header:
+  teaser: /images/blog-toybci/eog_dipole.png
 tags:
   - BCI
   - EEG
@@ -39,17 +41,17 @@ Instead of detecting single blinks (which would trigger constantly), I defined a
 
 This turned out to be the hardest part. The Muse S Athena (the latest hardware revision) uses a different BLE GATT profile than older Muses. It multiplexes all sensor data through fewer characteristics (`273e0013` instead of the traditional `273e0003-0007`). Neither BrainFlow nor muselsl support this.
 
-I ended up using `bleak` (a Python BLE library) directly, building on the protocol reverse-engineered by the [amused-py](https://github.com/Amused-EEG/amused-py) project. The initialization sequence looks like this:
+I ended up using `bleak` (a Python BLE library) directly, building on the protocol reverse-engineered by the [amused-py](https://github.com/Amused-EEG/amused-py) project. The initialization sequence looks really weird...
 
 ```
 v6 -> s -> h -> p21 -> s -> dc001 -> L1 -> h -> p1034 -> s -> dc001 -> L1
 ```
 
-The EEG data comes as 14-bit packed samples (not 12-bit like older Muses) at 256 Hz across 4 channels. Once I figured out the protocol, the connection is rock solid.
+The EEG data comes as 14-bit packed samples (not 12-bit like older Muses) at 256 Hz across 4 channels.
 
 ## Recording training data
 
-I wrote a quick prompter in [PsychoPy](https://www.psychopy.org/) (nostalgic, since I programmed my first psychophysics experiment in PsychoPy during my bachelor's) that cues the target blink sequence at jittered intervals. I recorded 6 sessions (~460 seconds of data total, ~90 blink sequences). The EEG streams directly into CSV files alongside event markers.
+I wrote a quick prompter in [PsychoPy](https://www.psychopy.org/) (nostalgic, since I programmed my first psychophysics experiment in PsychoPy during my bachelor's lol) that cues the target blink sequence at jittered intervals. I recorded 6 sessions (~460 seconds of data total, ~90 blink sequences). The EEG streams directly into CSV files alongside event markers.
 
 The challenge is that the prompt only tells you *approximately* when the blinks happened. The exact onset and offset times of each blink within the sequence are unknown, which is why I needed a post hoc labeling strategy.
 
@@ -83,7 +85,7 @@ I wanted something tiny and streaming-capable. The model sees a 5-second buffer 
 - **Bidirectional GRU** (64 hidden units) captures longer temporal context across the full 5-second window. Bidirectional because we're okay with ~2 second latency, so the model can look slightly into the "future" relative to the detection window.
 - **Linear head** maps to per-timestep blink probability.
 
-The model is intentionally acausal with about 2 seconds of latency. This is a lot, and you could definitely build something much faster with a causal architecture or a simpler threshold-based detector. But for triggering a keyboard shortcut, 2 seconds is fine, and letting the model see the *complete* blink sequence before making a decision dramatically reduces false positives.
+The model is intentionally acausal with about 2 seconds of latency. This is a lot, and you could definitely build something much faster with a causal architecture or just a shorter look ahead. But for triggering a keyboard shortcut in this little example, 2 seconds is fine, and letting the model see the complete blink sequence before making a decision dramatically reduces false positives.
 
 ## Training
 
@@ -91,7 +93,7 @@ With only 6 sessions of data, training takes about 30 seconds on an M4 Mac. I us
 
 <figure>
   <img src="/images/blog-toybci/training_curves.png" alt="Training curves">
-  <figcaption>Training curves over 300 epochs. Left: BCE loss for train (blue) and validation (orange) sets. Center: validation F1 score reaching 0.986 (green dot marks best checkpoint). Right: validation AUROC saturating at 0.999.</figcaption>
+  <figcaption>Training curves over 25 epochs. Left: BCE loss for train (blue) and validation (orange) sets. Center: validation F1 score reaching 0.986 (green dot marks best checkpoint). Right: validation AUROC saturating at 0.999.</figcaption>
 </figure>
 
 The model converges fast and hits **F1 = 0.986** on the held-out session with **AUROC = 0.999**. Early stopping kicks in around epoch 25. The class imbalance (~10% positive) is handled with a pos_weight of ~12x in the BCE loss.

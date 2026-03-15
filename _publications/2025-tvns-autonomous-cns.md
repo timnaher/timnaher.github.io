@@ -2,6 +2,9 @@
 title: "tVNS affects and depends on autonomous and central nervous system states"
 collection: publications
 category: manuscripts
+pub_tags:
+  - journal
+  - talk
 permalink: /publication/2025-tvns-autonomous-cns
 date: 2025-02-02
 venue: 'Brain Stimulation'

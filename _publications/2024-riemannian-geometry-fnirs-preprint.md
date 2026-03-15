@@ -2,6 +2,8 @@
 title: "Riemannian Geometry for the classification of brain states with fNIRS"
 collection: publications
 category: preprints
+pub_tags:
+  - preprint
 permalink: /publication/2024-riemannian-geometry-fnirs-preprint
 date: 2024-09-06
 venue: 'bioRxiv'

@@ -2,6 +2,8 @@
 title: "Long-term memory formation for voices during sleep in three-month-old infants"
 collection: publications
 category: manuscripts
+pub_tags:
+  - journal
 permalink: /publication/2024-infant-sleep-memory
 date: 2024-01-01
 venue: 'Neurobiology of Learning and Memory'

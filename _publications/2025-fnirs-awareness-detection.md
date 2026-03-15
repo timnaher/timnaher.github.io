@@ -2,6 +2,8 @@
 title: "Sensitive and specific fNIRS-based approach for awareness detection in disorders of consciousness: proof of principle in healthy adults"
 collection: publications
 category: manuscripts
+pub_tags:
+  - journal
 permalink: /publication/2025-fnirs-awareness-detection
 date: 2025-01-02
 venue: 'Neurophotonics'

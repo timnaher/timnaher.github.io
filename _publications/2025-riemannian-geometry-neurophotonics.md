@@ -2,6 +2,8 @@
 title: "Riemannian geometry boosts functional near-infrared spectroscopy-based brain-state classification accuracy"
 collection: publications
 category: manuscripts
+pub_tags:
+  - journal
 permalink: /publication/2025-riemannian-geometry-neurophotonics
 date: 2025-01-01
 venue: 'Neurophotonics'

@@ -2,6 +2,8 @@
 title: "Primate saccade rhythmicity"
 collection: publications
 category: preprints
+pub_tags:
+  - preprint
 permalink: /publication/2023-primate-saccade-rhythmicity
 date: 2023-09-27
 venue: 'bioRxiv'
