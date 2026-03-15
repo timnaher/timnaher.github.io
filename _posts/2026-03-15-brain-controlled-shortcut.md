@@ -96,12 +96,7 @@ With only 6 sessions of data, training takes about 30 seconds on an M4 Mac. I us
   <figcaption>Training curves over 25 epochs. Left: BCE loss for train (blue) and validation (orange) sets. Center: validation F1 score reaching 0.986 (green dot marks best checkpoint). Right: validation AUROC saturating at 0.999.</figcaption>
 </figure>
 
-The model converges fast and hits **F1 = 0.986** on the held-out session with **AUROC = 0.999**. Early stopping kicks in around epoch 25. The class imbalance (~10% positive) is handled with a pos_weight of ~12x in the BCE loss.
-
-Key training details:
-- Adam optimizer, lr=1e-3 with cosine annealing
-- Augmentations: Gaussian noise (2-5 uV), amplitude scaling (0.8-1.2x), channel dropout (10%), time shift (+/-50ms)
-- Batch size 32, early stopping patience 15
+The model converges fast and hits **F1 = 0.986** on the held-out session with **AUROC = 0.999**. Early stopping kicks in around epoch 25. The class imbalance (~10% positive) is handled with a pos_weight of ~12x in the BCE loss. I used Adam with a learning rate of 1e-3 and cosine annealing, batch size 32, and early stopping with patience 15. For augmentations I applied Gaussian noise (2-5 uV), amplitude scaling (0.8-1.2x), channel dropout (10%), and time shifts of +/-50ms.
 
 ## Does it actually work?
 
