@@ -126,7 +126,9 @@ There's a 3-second cooldown between detections to prevent double-triggers.
 The whole thing runs as a tiny always-on-top window: just a status dot, a probability bar, and "Idle" / "Detected".
 
 <figure>
-  <img src="/images/blog-toybci/blinkdemo.gif" alt="Real-time blink detection demo">
+  <video autoplay loop muted playsinline style="width: 100%; border-radius: 6px;">
+    <source src="/images/blog-toybci/blinkdemo.mp4" type="video/mp4">
+  </video>
   <figcaption>The system in action. Four rapid blinks trigger VS Code to come to the foreground.</figcaption>
 </figure>
 
