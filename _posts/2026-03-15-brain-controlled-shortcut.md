@@ -138,6 +138,6 @@ The whole thing runs as a tiny always-on-top window: just a status dot, a probab
 
 The entire project, from first BLE packet to working brain-controlled shortcut, took an afternoon. The model is 68K parameters and trains in 30 seconds. The inference runs comfortably at 12 Hz on CPU.
 
-It's worth noting that this is a personalized model, trained and tested on my own data. One of the hardest problems in deep learning for (neural/bio) signals is cross-participant generalization, which requires much more data and far more sophisticated modeling approaches and augmentation strategies. This is a really simple problem: the signal is strong, the task is binary, and the model only needs to work for one person. That's why a tiny CNN + GRU with 3 minutes of training data gets you to 0.986 F1.
+It's worth noting that this is a personalized model, trained and tested on my own data. One of the hardest problems in deep learning for (neural/bio) signals is cross-participant generalization, which requires much more data and far more sophisticated modeling approaches and augmentation strategies. This is a really simple problem: the signal is strong, the task is binary, and the model only needs to work for one person. That's why a tiny CNN + GRU with 15 minutes of training data gets you to 0.986 F1.
 
 Still, it's incredibly cool to me that you can build something like this in an afternoon. Connecting a consumer EEG headband to a real-time neural network that actually controls your computer is just so much fun to play around with!!
