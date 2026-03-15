@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-[Download CV (docx)](/files/TimNaherCV.docx){: .btn .btn--primary}
+<!-- [Download CV (docx)](/files/TimNaherCV.docx){: .btn .btn--primary} -->
 
 Education
 ======
@@ -17,31 +17,28 @@ Education
   * Thesis: *Latent Structure in Brain and Behavior: From Geometric Brain State Decoding to Saccadic Rhythmicity*
   * MPI for Biological Cybernetics (Tübingen) & Ernst Strüngmann Institute (Frankfurt). Supervisor: Pascal Fries.
 * **M.Sc. Research Master -- Clinical and Cognitive Neuroscience**, Maastricht University, Netherlands, 2019 -- 2021
-  * *summa cum laude*. WSUM Master Thesis Prize (best thesis, Faculty of Neuroscience & Psychology 2021).
+  * *summa cum laude*. WSUM Master Thesis Prize
 * **B.Sc. Psychology**, Trier University, Germany / Troy University, AL, 2013 -- 2019
 
 Work Experience
 ======
 * **Jun 2026 -- Present: Research Scientist, Peripheral Neural Interfaces**
   * Meta Reality Labs, New York, NY
-  * Develop and deploy real-time deep learning models for peripheral neural interface decoding, enabling sub-millisecond latency input for next-generation wearable human--computer interaction.
-  * Design on-device inference pipelines for continuous neural signal processing, optimizing model architectures for throughput and power constraints in wearable form factors.
 
 * **May 2025 -- Nov 2025: Research Scientist Intern**
   * Meta Reality Labs, New York, NY
-  * Developed novel deep learning architectures for real-time neuromotor decoding from EMG, advancing state-of-the-art accuracy for wearable neural input.
-  * Re-engineered modeling infrastructure and experimental pipelines, cutting iteration cycles and enabling rapid architecture search.
+  * Developing real-time deep learning models for peripheral neural interface decoding, enabling sub-millisecond latency input for next-generation wearable human-computer interaction.
 
-* **Jul 2024 -- May 2025: PhD Researcher & Co-Founder (Biofeedback Startup)**
+* **Jul 2024 -- May 2025: PhD Researcher**
   * Max Planck Institute for Biological Cybernetics, Tübingen, Germany
-  * ML pipelines using Riemannian geometry on fNIRS covariance manifolds for awareness detection in disorders of consciousness. Won the IEEE Brain Discovery Workshop Poster Prize (1st place).
-  * Built a causal ResidualEncoder + LSTMDecoder model for real-time EEG sleep oscillation detection.
+  * ML pipelines using Riemannian geometry for fNIRS brain state decoding and awareness detection in disorders of consciousness.
+  * Real-time causal sleep oscillation detection models.
 
 * **Oct 2021 -- Jul 2024: PhD Researcher**
   * Ernst Strüngmann Institute for Neuroscience, Frankfurt, Germany
   * Gamma renewal process model with rate-rescaling for inter-saccade interval rhythmicity across three primate species.
   * Vector-field decompositions of large-scale macaque ECoG arrays.
-  * cTBS-over-rFEF experiments with concurrent EEG; stochastic differential equation framework for saccade timing.
+  * cTBS-over-rFEF experiments with concurrent EEG
 
 * **Nov 2022 -- Nov 2023: Statistics Instructor**
   * Goethe University Frankfurt, Interdisciplinary M.Sc. Neuroscience
@@ -58,8 +55,7 @@ Skills
 Awards
 ======
 * **IEEE Brain Discovery & Neurotechnology Workshop Poster Prize** -- 1st place, ML & Computer Paradigms (Riemannian geometry for fNIRS-BCIs), 2024
-* **IEEE SMC BR4IN.IO BCI Hackathon** -- Closed-loop wearable EEG BCI for panic attack detection with tVNS biofeedback, 2024
-* **WSUM Master Thesis Prize** -- Best thesis, Faculty of Neuroscience & Psychology, Maastricht University, 2021
+* **WSUM Master Thesis Prize** -- Best M.Sc. thesis, Faculty of Neuroscience & Psychology, Maastricht University, 2021
 
 Publications
 ======
