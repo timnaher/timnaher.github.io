@@ -9,7 +9,7 @@ redirect_from:
 
 I am a NeuroAI researcher currently finishing my PhD in Systems Neuroscience at [Radboud University](https://www.ru.nl/en), supervised by [Prof. Pascal Fries](https://www.kyb.tuebingen.mpg.de/person/59524/2549) at the [Max Planck Institute for Biological Cybernetics](https://www.kyb.tuebingen.mpg.de/en) (Tübingen) and the [Ernst Strüngmann Institute](https://www.esi-frankfurt.de/) (Frankfurt). My thesis, *Latent Structure in Brain and Behavior: From Geometric Brain State Decoding to Saccadic Rhythmicity*, combined Riemannian geometry, causal deep learning, and stochastic modeling to decode brain states and characterize neural dynamics across species.
 
-After my internship last year, I will join [Meta](https://about.meta.com/realitylabs/) in June 2026 as a Research Scientist for peripheral neural interfaces in New York, where I will develop real-time deep learning models for peripheral neural interface decoding.
+After my internship last year, I will join [Meta](https://about.meta.com/realitylabs/) in June 2026 as a Research Scientist in New York, where I will develop real-time deep learning models for peripheral neural interface decoding.
 
 
 ## Research Interests
