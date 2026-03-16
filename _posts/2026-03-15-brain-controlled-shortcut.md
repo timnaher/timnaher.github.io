@@ -41,11 +41,7 @@ Instead of detecting single blinks (which would trigger constantly), I defined a
 
 This turned out to be the hardest part. The Muse S Athena (the latest hardware revision) uses a different BLE GATT profile than older Muses. It multiplexes all sensor data through fewer characteristics (`273e0013` instead of the traditional `273e0003-0007`). Neither BrainFlow nor muselsl support this.
 
-I ended up using `bleak` (a Python BLE library) directly, building on the protocol reverse-engineered by the [amused-py](https://github.com/Amused-EEG/amused-py) project. The initialization sequence looks really weird...
-
-```
-v6 -> s -> h -> p21 -> s -> dc001 -> L1 -> h -> p1034 -> s -> dc001 -> L1
-```
+I ended up using `bleak` (a Python BLE library) directly, building on the protocol reverse-engineered by the [amused-py](https://github.com/Amused-EEG/amused-py) project. 
 
 The EEG data comes as 14-bit packed samples (not 12-bit like older Muses) at 256 Hz across 4 channels.
 
