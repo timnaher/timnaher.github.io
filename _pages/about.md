@@ -11,6 +11,7 @@ I am a NeuroAI researcher currently finishing my PhD in Systems Neuroscience at 
 
 After my internship last year, I will join [Meta](https://about.meta.com/realitylabs/) in June 2026 as a Research Scientist in New York, where I will develop real-time deep learning models for peripheral neural interface decoding.
 
+<a href="mailto:tim.naeher@tuebingen.mpg.de" class="btn btn--primary" style="margin-top: 0.5em;">Contact Me</a>
 
 ## Research Interests
 
