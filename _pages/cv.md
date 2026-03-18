@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-<!-- [Download CV (docx)](/files/TimNaherCV.docx){: .btn .btn--primary} -->
+[Download CV (docx)](/files/TimNaherCV.docx){: .btn .btn--primary}
 
 Education
 ======
