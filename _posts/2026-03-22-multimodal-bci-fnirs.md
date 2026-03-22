@@ -63,11 +63,6 @@ Here's the punchline: In this setup and paradigm **fNIRS adds nothing.** Despite
 - **Strategy C (64%)**, the full cross-modal covariance, actually *hurts*. Cross-modal EEG×fNIRS correlations likely add noise, not signal
 - **Strategy A (62%)**, all block-diagonal, is the worst fNIRS approach
 
-<figure>
-  <img src="/images/blog-multimodal/multimodal_2_strategies.png" alt="EEG-only vs EEG+fNIRS fusion strategies">
-  <figcaption>Side-by-side comparison of EEG-only baselines (solid) and the three fNIRS fusion strategies (hatched). The EEG baselines are at least as good as or better than any multimodal combination.</figcaption>
-</figure>
-
 ## Statistical testing
 
 I used a permutation test (1,000 permutations) to assess whether the differences are significant. Under the null hypothesis, each fold's accuracy difference is equally likely to be positive or negative, and we permute the signs to build a null distribution.
