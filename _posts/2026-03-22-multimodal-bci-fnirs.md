@@ -35,7 +35,7 @@ Hybrid EEG-fNIRS systems have been shown to improve classification accuracy by a
 
 As a classifier, I used [pyriemann](https://pyriemann.readthedocs.io/) to classify covariance and kernel matrices. The key insight is that covariance/kernel matrices live on a curved manifold, not in flat Euclidean space, and respecting this geometry gives better classification, especially with small datasets like mine.
 
-The EEG signal is bandpass-filtered into **theta** (4-8 Hz), **alpha** (8-13 Hz), and **beta** (13-30 Hz). Each band produces a 4x4 covariance matrix. For fNIRS, I split HbO and HbR into separate covariance blocks (2 channels each) rather than combining them into one matrix. This follows the approach we introduced in [Näher et al. (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12523035/), where we showed that HbO and HbR contain different information structures and benefit from independent optimization of kernel selection and regularization parameters.
+The EEG signal is bandpass-filtered into **theta** (4-8 Hz), **alpha** (8-13 Hz), and **beta** (13-30 Hz). Each band produces a 4x4 covariance matrix. For fNIRS, I split HbO and HbR into separate covariance blocks (2 channels each) rather than combining them into one matrix. This follows the approach we introduced in [Näher et al. (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12523035/).
 
 Both EEG and fNIRS blocks are searched over the same space of covariance estimators (SCM, Ledoit-Wolf, OAS) and kernel methods (RBF, linear), each with optional shrinkage regularization. All matrices are trace-normalized before fusion so that modalities with different signal magnitudes (EEG in µV, fNIRS in µM) contribute equally.
 
@@ -67,34 +67,29 @@ Here's the punchline: In this setup and paradigm **fNIRS adds nothing.** Despite
 
 I used a permutation test (1,000 permutations) to assess whether the differences are significant. Under the null hypothesis, each fold's accuracy difference is equally likely to be positive or negative, and we permute the signs to build a null distribution.
 
-<figure>
-  <img src="/images/blog-multimodal/multimodal_3_stats.png" alt="Permutation test results">
-  <figcaption>Accuracy difference (in percentage points) when adding fNIRS to EEG, with permutation test p-values. All three bars are negative or zero, fNIRS consistently fails to help. None reach significance (p < 0.05).</figcaption>
-</figure>
-
 None of the three comparisons reach significance (all p > 0.5). The direction is consistently negative or zero.
 
 ## Why doesn't fNIRS help?
 
 A few factors likely explain this:
 
-**Spatial resolution.** The Muse S has only 2 long-distance fNIRS channels (left and right forehead). Research-grade fNIRS systems use 20-50+ channels with dense source-detector grids. With just 2 channels, there's not enough spatial information to capture the distributed hemodynamic pattern of cognitive load.
+**Spatial resolution.** The Muse S has only 2 long-distance fNIRS channels (left and right forehead). Research-grade fNIRS systems use 20-50+ channels with dense source-detector grids. With just 2 channels, there might not be enough spatial information to capture the distributed hemodynamic pattern of cognitive load.
 
-**EEG already captures the signal.** Mental arithmetic modulates alpha and theta power strongly and reliably. On a 4-channel consumer EEG, this spectral signature is already sufficient, the fNIRS doesn't carry complementary information that EEG is missing.
+**EEG already captures the signal.** Mental arithmetic can modulate alpha and theta power. On a 4-channel consumer EEG, this spectral signature might be already sufficient, the fNIRS doesn't carry complementary information that EEG is missing.
 
-**Curse of dimensionality.** Adding fNIRS channels increases the covariance matrix size without proportionally adding discriminative features. With only 80 trials, the larger matrices become harder to estimate reliably.
+**Curse of dimensionality.** Adding fNIRS channels increases the covariance matrix dimensionality without proportionally adding discriminative features. With only 80 trials, the larger matrices become harder to estimate reliably.
 
 ## What I learned
 
 **More sensors are not necessarily better.** The engineering intuition that more data means better classification breaks down when the additional modality doesn't carry complementary information relative to its dimensionality cost.
 
-**Per-modality kernel tuning matters.** An interesting finding: EEG alpha performed best with RBF kernels (`ker:rbf+shr0.01`), not standard covariance estimators. fNIRS also benefited from kernel methods. Using the same estimator for both would miss this. I wrote about the per-block kernel tuning approach in my [pyriemann fNIRS example](https://pyriemann.readthedocs.io/en/latest/auto_examples/fnirs/plot_classif_fnirs.html).
+**Per-modality kernel tuning matters.** An interesting finding: EEG alpha performed best with RBF kernels (`ker:rbf+shr0.01`), not standard covariance estimators. fNIRS also benefited from kernel methods. Using the same estimator for both would miss this. I wrote about the per-block kernel tuning approach in a previous [pyriemann fNIRS example](https://pyriemann.readthedocs.io/en/latest/auto_examples/fnirs/plot_classif_fnirs.html).
 
-**Trace normalization is essential** for multimodal fusion. Without it, the modality with larger absolute values dominates the block-diagonal matrix, making the other modality invisible.
+**Trace normalization is essential** for multimodal fusion. Without it, the modality with larger absolute values dominates the block-diagonal matrix.
 
 **Full cross-modal covariance hurts.** Strategy C, computing one big covariance over all channels, performed worst. The cross-modal EEG×fNIRS correlations are noisy on a consumer device and add dimensionality without adding signal. Block-diagonal fusion (keeping modalities separate) is more robust.
 
 ## The honest takeaway
 
-On a consumer-grade Muse S Athena with 4 EEG channels and 2 fNIRS channels, adding fNIRS does not improve mental arithmetic vs rest classification. This doesn't mean multimodal sensing is useless, or that the Muse S fNIRS sensors are useless. This conclusion is limited to my specific setup, task, paradigm and maybe also to my brain. With more fNIRS channels,  or tasks where EEG is weaker, the answer might be different. But for this combination of device, task, and data size, the 4-channel EEG already captures everything the classifier needs. I still think its cool that companies like Muse start to think more in the multimodal sense for wearable. Ultimately I believe that each modality has certain advantages and in my opinion, an ideal BCI/HCI setup leverages all these different strengths to build the best possible application, without stressing too much about only using brain data.
+On a consumer-grade Muse S Athena with 4 EEG channels and 2 fNIRS channels, adding fNIRS does not improve mental arithmetic vs rest classification in this small and personalized at-home experiment. This doesn't mean multimodal sensing is useless, or that the Muse S fNIRS sensors are useless. This conclusion is limited to my specific setup, task, paradigm and maybe also to my neural dynamics. With more fNIRS channels,  or tasks where EEG is weaker, the answer might be different. But for this combination of device, task, and data size, the 4-channel EEG seems to already capture all the discriminative strucutre. I still think its cool that companies like Muse start to think more in the multimodal sense for wearable. Ultimately I believe that each modality has certain advantages and in my opinion, an ideal BCI/HCI setup leverages all these different strengths to build the best possible application, without stressing too much about only using brain data.
 
