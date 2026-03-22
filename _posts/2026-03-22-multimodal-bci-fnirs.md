@@ -37,7 +37,7 @@ As a classifier, I used [pyriemann](https://pyriemann.readthedocs.io/) to classi
 
 The EEG signal is bandpass-filtered into **theta** (4-8 Hz), **alpha** (8-13 Hz), and **beta** (13-30 Hz). Each band produces a 4x4 covariance matrix. For fNIRS, I split HbO and HbR into separate covariance blocks (2 channels each) rather than combining them into one matrix. This follows the approach we introduced in [Näher et al. (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12523035/), where we showed that HbO and HbR contain different information structures and benefit from independent optimization of kernel selection and regularization parameters.
 
-Both EEG and fNIRS blocks are searched over the same space of covariance estimators (SCM, Ledoit-Wolf, OAS) **and** kernel methods (RBF, linear), each with optional shrinkage regularization. All matrices are trace-normalized before fusion so that modalities with different signal magnitudes (EEG in µV, fNIRS in µM) contribute equally.
+Both EEG and fNIRS blocks are searched over the same space of covariance estimators (SCM, Ledoit-Wolf, OAS) and kernel methods (RBF, linear), each with optional shrinkage regularization. All matrices are trace-normalized before fusion so that modalities with different signal magnitudes (EEG in µV, fNIRS in µM) contribute equally.
 
 ## Three fusion strategies
 
@@ -84,8 +84,6 @@ None of the three comparisons reach significance (all p > 0.5). The direction is
 A few factors likely explain this:
 
 **Spatial resolution.** The Muse S has only 2 long-distance fNIRS channels (left and right forehead). Research-grade fNIRS systems use 20-50+ channels with dense source-detector grids. With just 2 channels, there's not enough spatial information to capture the distributed hemodynamic pattern of cognitive load.
-
-**Temporal resolution.** The hemodynamic response peaks 5-8 seconds after neural activation. Our 5-second epoch window may not capture the full fNIRS response, while EEG captures the neural signature within milliseconds.
 
 **EEG already captures the signal.** Mental arithmetic modulates alpha and theta power strongly and reliably. On a 4-channel consumer EEG, this spectral signature is already sufficient, the fNIRS doesn't carry complementary information that EEG is missing.
 
