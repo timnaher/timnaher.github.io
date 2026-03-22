@@ -1,5 +1,5 @@
 ---
-title: "Does adding fNIRS to EEG actually help? A consumer wearable perspective"
+title: "Does the Muse S Athena's fNIRS actually improve brain decoding?"
 date: 2026-03-22
 permalink: /posts/2026/03/multimodal-bci-fnirs/
 header:
