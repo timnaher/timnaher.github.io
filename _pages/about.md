@@ -17,6 +17,7 @@ After my internship last year, I will join [Meta](https://about.meta.com/reality
 
 - Neural decoding & real-time models
 - Deep learning for neuroscience
+- Brain foundation models
 - Multimodal Brain-computer interfaces (fNIRS, EEG, EMG)
 - Riemannian geometry for neural data
 - Saccade dynamics & visual neuroscience
