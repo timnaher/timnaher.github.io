@@ -15,7 +15,7 @@ tags:
 I built a desktop application for labeling eye movement events and training the [U'n'Eye](https://github.com/berenslab/uneye) deep learning model for automatic saccade detection. It's called **GazeAnnot**, and it wraps the full workflow, from raw eye position data to trained model, into a single interactive tool.
 
 <figure>
-  <img src="/images/blog-gazeannot/demo.gif" alt="GazeAnnot demo">
+  <img src="/images/blog-gazeannot/demo.gif" alt="GazeAnnot demo" style="max-width: 600px; width: 100%;">
   <figcaption>GazeAnnot in action: labeling saccades on eye position and velocity traces, then training U'n'Eye with live loss curves and per-class metrics.</figcaption>
 </figure>
 
